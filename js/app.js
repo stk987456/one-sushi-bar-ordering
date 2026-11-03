@@ -134,7 +134,11 @@
       img.onerror = () => { img.hidden = true; $('#logo-text').hidden = false; };
     }
     if (R.siteUrl) { $('#logo-link').href = R.siteUrl; $('#site-link').href = R.siteUrl; $('#footer-site').href = R.siteUrl; $('#footer-site').textContent = R.siteUrl.replace(/^https?:\/\//, '').replace(/\/$/, ''); }
-    if (R.heroImage) $('#hero-img').src = R.heroImage;
+    if (R.heroImage) {
+      const hero = $('#hero-img');
+      hero.addEventListener('error', () => $('#hero-media').remove()); // e.g. hosts that block remote images
+      hero.src = R.heroImage;
+    }
     $('#hero-sub').textContent = `${R.name || ''} · ${R.address || ''}${R.addressNote ? ` (${R.addressNote})` : ''}`;
     $('#footer-address').textContent = `${R.address || ''}${R.addressNote ? ` · ${R.addressNote}` : ''}`;
     $('#footer-hours').textContent = `שעות פעילות: ${hoursText()}`;
@@ -242,6 +246,7 @@
       : `<div class="empty container"><div class="ico">🍣</div><p>לא נמצאו מנות מתאימות לחיפוש</p><button class="btn btn-ghost" type="button" id="clear-filters">נקה חיפוש וסינון</button></div>`;
     $('#clear-filters')?.addEventListener('click', () => { state.query = ''; $('#search').value = ''; state.filters.clear(); renderFilters(); renderMenu(); });
     $('#featured').hidden = !!(state.query.trim() || state.filters.size) || !(MENU.featured || []).length;
+    $$('.cat-banner img', main).forEach((img) => img.addEventListener('error', () => img.remove()));
     observeReveals(main);
     updateActivePill();
   }
