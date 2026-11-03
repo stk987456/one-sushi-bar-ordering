@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>הזמנה אונליין – one סושי בר אשדוד</title>
+  <meta name="description" content="הזמנת משלוח או איסוף עצמי מ-one סושי בר, הציונות 13 אשדוד. סושי, רולים חמים, קומבינציות, מוקפצים ועוד.">
+  <meta name="theme-color" content="#0c0c0c">
+  <link rel="icon" href="https://onesushibar.co.il/wp-content/uploads/2019/03/לוגו-one-150x142.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><div class="grain"></div></div>
+  <a class="skip" href="#menu">דילוג לתפריט</a>
+
+  <header class="topbar">
+    <div class="container">
+      <a class="logo" id="logo-link" href="https://onesushibar.co.il/" title="one סושי בר – לאתר המסעדה">
+        <img id="logo-img" src="" alt="one sushi bar" hidden>
+        <span class="logo-text" id="logo-text"><b>one</b><small>SUSHI BAR</small></span>
+      </a>
+      <div class="topbar-title">הזמנה למשלוח ואיסוף עצמי</div>
+      <a class="site-link" id="site-link" href="https://onesushibar.co.il/">לאתר המסעדה</a>
+      <button class="cart-btn" id="cart-btn" type="button" aria-label="פתח את הסל">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+        <span>הסל</span>
+        <span class="badge" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero-media" id="hero-media" aria-hidden="true"><img id="hero-img" alt=""></div>
+    <div class="container">
+      <h1>הזמנה אונליין</h1>
+      <p id="hero-sub"></p>
+      <div class="service-toggle" role="group" aria-label="סוג הזמנה" id="service-toggle">
+        <button type="button" data-service="delivery" aria-pressed="true">🛵 משלוח</button>
+        <button type="button" data-service="pickup" aria-pressed="false">🥢 איסוף עצמי</button>
+      </div>
+      <div class="status-line" id="status-line"></div>
+    </div>
+  </section>
+
+  <nav class="catnav" aria-label="קטגוריות">
+    <div class="container">
+      <div class="pills" id="pills"></div>
+      <label class="search">
+        <span class="sr-only">חיפוש מנה</span>
+        <input type="search" id="search" placeholder="חיפוש מנה…" autocomplete="off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </label>
+    </div>
+  </nav>
+
+  <div class="filters container" id="filters" role="group" aria-label="סינון"></div>
+
+  <section class="featured" id="featured" hidden aria-label="מומלצים">
+    <div class="container">
+      <div class="featured-head">
+        <h2>המומלצים שלנו <small>מנות שף וקומבינציות אהובות</small></h2>
+        <span class="hint">גללו לצדדים ←</span>
+      </div>
+      <div class="strip" id="featured-strip"></div>
+    </div>
+  </section>
+
+  <main id="menu" class="menu" aria-live="polite"></main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="logo-text footer-logo"><b>one</b><small>SUSHI BAR</small></div>
+        <p id="footer-address"></p>
+        <p id="footer-hours"></p>
+      </div>
+      <div>
+        <p><a id="footer-phone" href="#"></a></p>
+        <p><a id="footer-site" href="https://onesushibar.co.il/">onesushibar.co.il</a></p>
+        <p class="small">מכירת אלכוהול לבני 18 ומעלה בלבד. המחירים כוללים מע"מ.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="bottombar" id="bottombar" hidden>
+    <button class="btn btn-dark" id="bottombar-btn" type="button">
+      <span><span class="badge" id="bottombar-count">0</span> צפייה בסל</span>
+      <span id="bottombar-total">₪0</span>
+    </button>
+  </div>
+
+  <div class="scrim" id="scrim"></div>
+
+  <aside class="drawer" id="cart" aria-label="סל הקניות" aria-hidden="true">
+    <div class="drawer-head">
+      <h2>הסל שלי</h2>
+      <button class="icon-btn" id="cart-close" type="button" aria-label="סגור">✕</button>
+    </div>
+    <div class="drawer-body" id="cart-body"></div>
+    <div class="drawer-foot" id="cart-foot" hidden></div>
+  </aside>
+
+  <div class="modal" id="item-modal" hidden role="dialog" aria-modal="true" aria-labelledby="item-modal-title">
+    <div class="modal-card" id="item-modal-card"></div>
+  </div>
+
+  <div class="modal checkout" id="checkout-modal" hidden role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+    <div class="modal-card" id="checkout-card"></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/menu-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
