@@ -10,6 +10,9 @@ pickup, fill in their details and send the order.
 No framework, no build step, no server-side code required: plain HTML, CSS and
 JavaScript. It can be uploaded next to the WordPress site as-is.
 
+**Live preview (GitHub Pages):** https://stk987456.github.io/one-sushi-bar-ordering/
+– updates automatically about a minute after every push to `main`.
+
 ## Design
 
 Dark edition, modelled on how upscale sushi brands (Zuma, Sushi Samba) and
